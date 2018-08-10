@@ -8,7 +8,7 @@ const typeDefs = importSchema(`${__dirname}/schema.graphql`)
 const db = new Prisma({
   fragmentReplacements,
   endpoint: process.env.PRISMA_ENDPOINT,
-  secret: process.env.PRISMA_MANAGEMENT_API_SECRET,
+  secret: "mysecret123",
   debug: true,
 })
 

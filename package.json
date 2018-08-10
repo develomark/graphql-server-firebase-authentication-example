@@ -2,7 +2,8 @@
   "name": "graphql-server-firebase-authentication-example",
   "version": "0.0.0",
   "scripts": {
-    "dev": "npm-run-all --parallel start playground",
+    "dev-play": "npm-run-all --parallel start playground",
+    "dev": "npm run start ",
     "start": "nodemon -e ts,graphql -x ts-node -r dotenv/config src/index.ts",
     "playground": "graphql playground",
     "build": "rm -rf dist && graphql codegen && tsc",

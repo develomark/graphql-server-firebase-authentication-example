@@ -316,11 +316,12 @@ mutation {
       host: {
         create: {
           email: "test12@test.com"
-          firstName: "Hans"
-          lastName: "Johanson"
+          # firstName: "Hans"
+          # lastName: "Johanson"
+          name: "Hans Johanson"
           isSuperHost: true
           phone: "+1123455667"
-          password: "secret"
+          # password: "secret"
           location: {
             create: {
               address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
@@ -418,11 +419,12 @@ mutation {
       host: {
         create: {
           email: "test13@test.com"
-          firstName: "Leah"
-          lastName: "Dyer"
+          # firstName: "Leah"
+          # lastName: "Dyer"
+          name: "Leah Dyer"
           isSuperHost: true
           phone: "+1123455667"
-          password: "secret"
+          # password: "secret"
           location: {
             create: {
               address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"
@@ -520,11 +522,12 @@ mutation {
       host: {
         create: {
           email: "test15@test.com"
-          firstName: "Kris"
-          lastName: "Mao"
+          # firstName: "Kris"
+          # lastName: "Mao"
+          name: "Kris Mao"
           isSuperHost: true
           phone: "+1123455667"
-          password: "secret"
+
           location: {
             create: {
               address: "2 Salmon Way, Moss Landing, Monterey County, CA, USA"

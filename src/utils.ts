@@ -1,26 +1,31 @@
-import * as jwt from 'jsonwebtoken'
 import { Prisma } from './generated/prisma'
+import { verifyUserSessionToken } from './firebase'
 
 export interface Context {
   db: Prisma
-  request: any
+  req: any
+  userId: string
 }
 
-export function getUserId(context) {
+export async function getUserId(context) {
+  
   const Authorization = context.req.headers.authorization
   if (Authorization) {
     const token = Authorization.replace('Bearer ', '')
-    const { userId } = jwt.verify(token, process.env.APP_SECRET!) as {
-      userId: string
-    }
+    const { userId } = await verifyUserSessionToken(token)
+    console.log(userId)
     return userId
   }
 
   throw new AuthError()
 }
 
+
+
 export class AuthError extends Error {
-  constructor() {
-    super('Not authorized')
+  constructor(
+    error: { message: string; stack?: any } = { message: 'Not authorized' },
+  ) {
+    super(error.message)
   }
 }

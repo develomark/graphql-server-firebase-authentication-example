@@ -2,14 +2,15 @@ type User {
   id: ID! @unique
   createdAt: DateTime!
   updatedAt: DateTime!
-  firstName: String!
-  lastName: String!
-  email: String! @unique
-
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String @unique
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
-
   isSuperHost: Boolean! @default(value: "false")
   ownedPlaces: [Place!]!
   location: Location

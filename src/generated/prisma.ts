@@ -8918,11 +8918,13 @@ type User implements Node {
   id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean!
@@ -8948,11 +8950,13 @@ type UserConnection {
 }
 
 input UserCreateInput {
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -9008,11 +9012,13 @@ input UserCreateOneWithoutSentMessagesInput {
 }
 
 input UserCreateWithoutBookingsInput {
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -9027,11 +9033,13 @@ input UserCreateWithoutBookingsInput {
 }
 
 input UserCreateWithoutHostingExperiencesInput {
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -9046,11 +9054,13 @@ input UserCreateWithoutHostingExperiencesInput {
 }
 
 input UserCreateWithoutLocationInput {
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -9065,11 +9075,13 @@ input UserCreateWithoutLocationInput {
 }
 
 input UserCreateWithoutNotificationsInput {
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -9084,11 +9096,13 @@ input UserCreateWithoutNotificationsInput {
 }
 
 input UserCreateWithoutOwnedPlacesInput {
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -9103,11 +9117,13 @@ input UserCreateWithoutOwnedPlacesInput {
 }
 
 input UserCreateWithoutPaymentAccountInput {
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -9122,11 +9138,13 @@ input UserCreateWithoutPaymentAccountInput {
 }
 
 input UserCreateWithoutReceivedMessagesInput {
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -9141,11 +9159,13 @@ input UserCreateWithoutReceivedMessagesInput {
 }
 
 input UserCreateWithoutSentMessagesInput {
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean
@@ -9179,10 +9199,14 @@ enum UserOrderByInput {
   firstName_DESC
   lastName_ASC
   lastName_DESC
-  email_ASC
-  email_DESC
   password_ASC
   password_DESC
+  name_ASC
+  name_DESC
+  email_ASC
+  email_DESC
+  emailVerified_ASC
+  emailVerified_DESC
   phone_ASC
   phone_DESC
   responseRate_ASC
@@ -9197,11 +9221,13 @@ type UserPreviousValues {
   id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  phone: String!
+  firstName: String
+  lastName: String
+  password: String
+  name: String
+  email: String
+  emailVerified: Boolean
+  phone: String
   responseRate: Float
   responseTime: Int
   isSuperHost: Boolean!
@@ -9249,8 +9275,10 @@ input UserSubscriptionWhereInput {
 input UserUpdateInput {
   firstName: String
   lastName: String
-  email: String
   password: String
+  name: String
+  email: String
+  emailVerified: Boolean
   phone: String
   responseRate: Float
   responseTime: Int
@@ -9334,8 +9362,10 @@ input UserUpdateOneWithoutSentMessagesInput {
 input UserUpdateWithoutBookingsDataInput {
   firstName: String
   lastName: String
-  email: String
   password: String
+  name: String
+  email: String
+  emailVerified: Boolean
   phone: String
   responseRate: Float
   responseTime: Int
@@ -9353,8 +9383,10 @@ input UserUpdateWithoutBookingsDataInput {
 input UserUpdateWithoutHostingExperiencesDataInput {
   firstName: String
   lastName: String
-  email: String
   password: String
+  name: String
+  email: String
+  emailVerified: Boolean
   phone: String
   responseRate: Float
   responseTime: Int
@@ -9372,8 +9404,10 @@ input UserUpdateWithoutHostingExperiencesDataInput {
 input UserUpdateWithoutLocationDataInput {
   firstName: String
   lastName: String
-  email: String
   password: String
+  name: String
+  email: String
+  emailVerified: Boolean
   phone: String
   responseRate: Float
   responseTime: Int
@@ -9391,8 +9425,10 @@ input UserUpdateWithoutLocationDataInput {
 input UserUpdateWithoutNotificationsDataInput {
   firstName: String
   lastName: String
-  email: String
   password: String
+  name: String
+  email: String
+  emailVerified: Boolean
   phone: String
   responseRate: Float
   responseTime: Int
@@ -9410,8 +9446,10 @@ input UserUpdateWithoutNotificationsDataInput {
 input UserUpdateWithoutOwnedPlacesDataInput {
   firstName: String
   lastName: String
-  email: String
   password: String
+  name: String
+  email: String
+  emailVerified: Boolean
   phone: String
   responseRate: Float
   responseTime: Int
@@ -9429,8 +9467,10 @@ input UserUpdateWithoutOwnedPlacesDataInput {
 input UserUpdateWithoutPaymentAccountDataInput {
   firstName: String
   lastName: String
-  email: String
   password: String
+  name: String
+  email: String
+  emailVerified: Boolean
   phone: String
   responseRate: Float
   responseTime: Int
@@ -9448,8 +9488,10 @@ input UserUpdateWithoutPaymentAccountDataInput {
 input UserUpdateWithoutReceivedMessagesDataInput {
   firstName: String
   lastName: String
-  email: String
   password: String
+  name: String
+  email: String
+  emailVerified: Boolean
   phone: String
   responseRate: Float
   responseTime: Int
@@ -9467,8 +9509,10 @@ input UserUpdateWithoutReceivedMessagesDataInput {
 input UserUpdateWithoutSentMessagesDataInput {
   firstName: String
   lastName: String
-  email: String
   password: String
+  name: String
+  email: String
+  emailVerified: Boolean
   phone: String
   responseRate: Float
   responseTime: Int
@@ -9696,46 +9740,6 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   lastName_not_ends_with: String
-  email: String
-
-  """All values that are not equal to given value."""
-  email_not: String
-
-  """All values that are contained in given list."""
-  email_in: [String!]
-
-  """All values that are not contained in given list."""
-  email_not_in: [String!]
-
-  """All values less than the given value."""
-  email_lt: String
-
-  """All values less than or equal the given value."""
-  email_lte: String
-
-  """All values greater than the given value."""
-  email_gt: String
-
-  """All values greater than or equal the given value."""
-  email_gte: String
-
-  """All values containing the given string."""
-  email_contains: String
-
-  """All values not containing the given string."""
-  email_not_contains: String
-
-  """All values starting with the given string."""
-  email_starts_with: String
-
-  """All values not starting with the given string."""
-  email_not_starts_with: String
-
-  """All values ending with the given string."""
-  email_ends_with: String
-
-  """All values not ending with the given string."""
-  email_not_ends_with: String
   password: String
 
   """All values that are not equal to given value."""
@@ -9776,6 +9780,90 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   password_not_ends_with: String
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  email: String
+
+  """All values that are not equal to given value."""
+  email_not: String
+
+  """All values that are contained in given list."""
+  email_in: [String!]
+
+  """All values that are not contained in given list."""
+  email_not_in: [String!]
+
+  """All values less than the given value."""
+  email_lt: String
+
+  """All values less than or equal the given value."""
+  email_lte: String
+
+  """All values greater than the given value."""
+  email_gt: String
+
+  """All values greater than or equal the given value."""
+  email_gte: String
+
+  """All values containing the given string."""
+  email_contains: String
+
+  """All values not containing the given string."""
+  email_not_contains: String
+
+  """All values starting with the given string."""
+  email_starts_with: String
+
+  """All values not starting with the given string."""
+  email_not_starts_with: String
+
+  """All values ending with the given string."""
+  email_ends_with: String
+
+  """All values not ending with the given string."""
+  email_not_ends_with: String
+  emailVerified: Boolean
+
+  """All values that are not equal to given value."""
+  emailVerified_not: Boolean
   phone: String
 
   """All values that are not equal to given value."""
@@ -10405,10 +10493,14 @@ export type UserOrderByInput =   'id_ASC' |
   'firstName_DESC' |
   'lastName_ASC' |
   'lastName_DESC' |
-  'email_ASC' |
-  'email_DESC' |
   'password_ASC' |
   'password_DESC' |
+  'name_ASC' |
+  'name_DESC' |
+  'email_ASC' |
+  'email_DESC' |
+  'emailVerified_ASC' |
+  'emailVerified_DESC' |
   'phone_ASC' |
   'phone_DESC' |
   'responseRate_ASC' |
@@ -10617,20 +10709,6 @@ export interface UserWhereInput {
   lastName_not_starts_with?: String
   lastName_ends_with?: String
   lastName_not_ends_with?: String
-  email?: String
-  email_not?: String
-  email_in?: String[] | String
-  email_not_in?: String[] | String
-  email_lt?: String
-  email_lte?: String
-  email_gt?: String
-  email_gte?: String
-  email_contains?: String
-  email_not_contains?: String
-  email_starts_with?: String
-  email_not_starts_with?: String
-  email_ends_with?: String
-  email_not_ends_with?: String
   password?: String
   password_not?: String
   password_in?: String[] | String
@@ -10645,6 +10723,36 @@ export interface UserWhereInput {
   password_not_starts_with?: String
   password_ends_with?: String
   password_not_ends_with?: String
+  name?: String
+  name_not?: String
+  name_in?: String[] | String
+  name_not_in?: String[] | String
+  name_lt?: String
+  name_lte?: String
+  name_gt?: String
+  name_gte?: String
+  name_contains?: String
+  name_not_contains?: String
+  name_starts_with?: String
+  name_not_starts_with?: String
+  name_ends_with?: String
+  name_not_ends_with?: String
+  email?: String
+  email_not?: String
+  email_in?: String[] | String
+  email_not_in?: String[] | String
+  email_lt?: String
+  email_lte?: String
+  email_gt?: String
+  email_gte?: String
+  email_contains?: String
+  email_not_contains?: String
+  email_starts_with?: String
+  email_not_starts_with?: String
+  email_ends_with?: String
+  email_not_ends_with?: String
+  emailVerified?: Boolean
+  emailVerified_not?: Boolean
   phone?: String
   phone_not?: String
   phone_in?: String[] | String
@@ -10762,8 +10870,10 @@ export interface MessageWhereInput {
 export interface UserUpdateInput {
   firstName?: String
   lastName?: String
-  email?: String
   password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
   phone?: String
   responseRate?: Float
   responseTime?: Int
@@ -11382,11 +11492,13 @@ export interface PricingWhereInput {
 }
 
 export interface UserCreateWithoutPaymentAccountInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost?: Boolean
@@ -11528,11 +11640,13 @@ export interface LocationWhereInput {
 }
 
 export interface UserCreateWithoutSentMessagesInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost?: Boolean
@@ -11990,8 +12104,10 @@ export interface PlaceCreateWithoutPoliciesInput {
 export interface UserUpdateWithoutNotificationsDataInput {
   firstName?: String
   lastName?: String
-  email?: String
   password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
   phone?: String
   responseRate?: Float
   responseTime?: Int
@@ -12564,11 +12680,13 @@ export interface UserUpsertWithoutOwnedPlacesInput {
 }
 
 export interface UserCreateWithoutNotificationsInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost?: Boolean
@@ -12891,8 +13009,10 @@ export interface PricingCreateOneWithoutPlaceInput {
 export interface UserUpdateWithoutHostingExperiencesDataInput {
   firstName?: String
   lastName?: String
-  email?: String
   password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
   phone?: String
   responseRate?: Float
   responseTime?: Int
@@ -13266,8 +13386,10 @@ export interface ReviewSubscriptionWhereInput {
 export interface UserUpdateWithoutOwnedPlacesDataInput {
   firstName?: String
   lastName?: String
-  email?: String
   password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
   phone?: String
   responseRate?: Float
   responseTime?: Int
@@ -13679,8 +13801,10 @@ export interface PaymentAccountWhereUniqueInput {
 export interface UserUpdateWithoutLocationDataInput {
   firstName?: String
   lastName?: String
-  email?: String
   password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
   phone?: String
   responseRate?: Float
   responseTime?: Int
@@ -13875,8 +13999,10 @@ export interface LocationUpdateWithoutNeighbourHoodDataInput {
 export interface UserUpdateWithoutBookingsDataInput {
   firstName?: String
   lastName?: String
-  email?: String
   password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
   phone?: String
   responseRate?: Float
   responseTime?: Int
@@ -13963,8 +14089,10 @@ export interface PlaceUpdateOneWithoutPricingInput {
 export interface UserUpdateWithoutReceivedMessagesDataInput {
   firstName?: String
   lastName?: String
-  email?: String
   password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
   phone?: String
   responseRate?: Float
   responseTime?: Int
@@ -14016,11 +14144,13 @@ export interface NotificationUpdateWithoutUserDataInput {
 }
 
 export interface UserCreateInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost?: Boolean
@@ -14140,11 +14270,13 @@ export interface LocationUpdateWithoutExperienceDataInput {
 }
 
 export interface UserCreateWithoutOwnedPlacesInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost?: Boolean
@@ -14722,11 +14854,13 @@ export interface PaymentUpdateWithoutBookingDataInput {
 }
 
 export interface UserCreateWithoutHostingExperiencesInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost?: Boolean
@@ -14775,11 +14909,13 @@ export interface UserUpdateOneWithoutPaymentAccountInput {
 }
 
 export interface UserCreateWithoutLocationInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost?: Boolean
@@ -14796,8 +14932,10 @@ export interface UserCreateWithoutLocationInput {
 export interface UserUpdateWithoutPaymentAccountDataInput {
   firstName?: String
   lastName?: String
-  email?: String
   password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
   phone?: String
   responseRate?: Float
   responseTime?: Int
@@ -14813,11 +14951,13 @@ export interface UserUpdateWithoutPaymentAccountDataInput {
 }
 
 export interface UserCreateWithoutBookingsInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost?: Boolean
@@ -14966,8 +15106,10 @@ export interface RestaurantWhereInput {
 export interface UserUpdateWithoutSentMessagesDataInput {
   firstName?: String
   lastName?: String
-  email?: String
   password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
   phone?: String
   responseRate?: Float
   responseTime?: Int
@@ -15227,11 +15369,13 @@ export interface ExperienceUpsertWithWhereUniqueWithoutHostInput {
 }
 
 export interface UserCreateWithoutReceivedMessagesInput {
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost?: Boolean
@@ -15451,11 +15595,13 @@ export interface User extends Node {
   id: ID_Output
   createdAt: DateTime
   updatedAt: DateTime
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost: Boolean
@@ -15619,11 +15765,13 @@ export interface UserPreviousValues {
   id: ID_Output
   createdAt: DateTime
   updatedAt: DateTime
-  firstName: String
-  lastName: String
-  email: String
-  password: String
-  phone: String
+  firstName?: String
+  lastName?: String
+  password?: String
+  name?: String
+  email?: String
+  emailVerified?: Boolean
+  phone?: String
   responseRate?: Float
   responseTime?: Int
   isSuperHost: Boolean
@@ -16688,6 +16836,11 @@ The `String` scalar type represents textual data, represented as UTF-8 character
 export type String = string
 
 /*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean
+
+/*
 The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). 
 */
 export type Float = number
@@ -16696,10 +16849,5 @@ export type Float = number
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
 */
 export type Int = number
-
-/*
-The `Boolean` scalar type represents `true` or `false`.
-*/
-export type Boolean = boolean
 
 export type DateTime = Date | string

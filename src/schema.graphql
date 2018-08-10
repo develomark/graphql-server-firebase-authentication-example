@@ -13,13 +13,11 @@ type Query {
 
 type Mutation {
   signup(
-    email: String!
-    password: String!
-    firstName: String!
-    lastName: String!
-    phone: String!
+    idToken: String!
   ): AuthPayload!
-  login(email: String!, password: String!): AuthPayload!
+  login(  
+    idToken: String!
+  ): AuthPayload!
   addPaymentMethod(
     cardNumber: String!
     expiresOnMonth: Int!
