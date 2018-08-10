@@ -4,22 +4,24 @@ import { verifyUserSessionToken } from './firebase'
 export interface Context {
   db: Prisma
   req: any
-  userId: string
+  user: Auth
 }
 
-export async function getUserId(context) {
-  
-  const Authorization = context.req.headers.authorization
+export interface Auth {
+  id: string
+  admin: boolean
+  [key: string]: any
+}
+
+export async function getUser(ctx) {
+  const Authorization = (ctx.req || ctx.request).get('Authorization')
   if (Authorization) {
     const token = Authorization.replace('Bearer ', '')
-    const { userId } = await verifyUserSessionToken(token)
-    return userId
+    const { id, admin } = (await verifyUserSessionToken(token)) as Auth
+    return { id, admin }
   }
-
-  throw new AuthError()
+  return null
 }
-
-
 
 export class AuthError extends Error {
   constructor(

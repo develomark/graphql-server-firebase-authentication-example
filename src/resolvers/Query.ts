@@ -1,4 +1,4 @@
-import { Context, getUserId } from '../utils'
+import { Context } from '../utils'
 import { WrapQuery } from 'graphql-tools'
 import { SelectionSetNode, Kind } from 'graphql'
 
@@ -6,7 +6,7 @@ export const Query = {
   viewer: () => ({}),
 
   myLocation: async (parent, args, ctx, info) => {
-    const id = getUserId(ctx)
+    const id = ctx.user.id
     return ctx.db.query.user({ where: { id } }, info, {
       transforms: [
         new WrapQuery(

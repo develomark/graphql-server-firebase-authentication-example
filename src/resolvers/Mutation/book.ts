@@ -1,8 +1,8 @@
-import { Context, getUserId } from '../../utils'
+import { Context } from '../../utils'
 import gql from 'graphql-tag'
 
 export async function book(parent, args, ctx: Context, info) {
-  const userId = await getUserId(ctx)
+  const userId = ctx.user.id
 
   const paymentAccount = await getPaymentAccount(userId, ctx)
   if (!paymentAccount) {

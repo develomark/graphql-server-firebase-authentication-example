@@ -2,13 +2,14 @@ const { ApolloServer } = require('apollo-server')
 import { Prisma } from './generated/prisma'
 import { resolvers, fragmentReplacements } from './resolvers'
 import { importSchema } from 'graphql-import'
+import { getUser } from './utils'
 
 const typeDefs = importSchema(`${__dirname}/schema.graphql`)
 
 const db = new Prisma({
   fragmentReplacements,
   endpoint: process.env.PRISMA_ENDPOINT,
-  secret: "mysecret123",
+  secret: 'mysecret123',
   debug: true,
 })
 
@@ -17,8 +18,9 @@ const server = new ApolloServer({
   resolvers,
   //optional parameter
 
-  context: req => {
-    return { ...req, db }
+  context: async req => {
+    const user = await getUser(req)
+    return { ...req, db, user }
   },
   onHealthCheck: () =>
     new Promise((resolve, reject) => {

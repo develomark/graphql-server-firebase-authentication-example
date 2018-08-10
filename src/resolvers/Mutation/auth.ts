@@ -3,7 +3,6 @@ import { AuthError, Context } from '../../utils'
 import {
   verifyIdToken,
   getUser,
-
   createUserSessionToken,
   setUserClaims,
 } from '../../firebase'
@@ -27,8 +26,8 @@ export const auth = {
 
     //Create firebase new cookie token
     //Persist prisma userId into firebase auth so we do not need to do a DB call.
-    //Here we could save some authorization data also e.g. auth.admin: true
-    await setUserClaims(uid, { userId: user.id })
+    //Here we could save some authorization data also e.g. admin: true
+    await setUserClaims(uid, { id: user.id, admin: false })
 
     const token = await createUserSessionToken(args, ctx)
 
@@ -39,13 +38,11 @@ export const auth = {
   },
 
   async login(parent, args, ctx: Context, info) {
-    const fuser = await verifyIdToken(args.idToken)
+    const { id } = await verifyIdToken(args.idToken)
 
-    if (!fuser.userId) new AuthError({ message: 'User is not registered' })
+    if (!id) new AuthError({ message: 'User is not registered' })
 
-    const { userId } = fuser
-
-    const user = await ctx.db.query.user({ where: { id: userId } })
+    const user = await ctx.db.query.user({ where: { id } })
 
     if (!user) {
       throw new AuthError({ message: 'User account does not exist' })
