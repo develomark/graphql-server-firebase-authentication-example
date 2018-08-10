@@ -54,8 +54,10 @@ const verifyUserSessionToken = async token => {
     .auth()
     .verifySessionCookie(token, true /** checkRevoked */)
 
+
   if (user.userId) return user
-  else if (user.uid) admin.auth().getUser(user.uid)
+  else if (user.uid) return await admin.auth().getUser(user.uid)
+
   else throw new AuthError({ message: 'User Session Token Verification Error' })
 }
 
@@ -64,10 +66,8 @@ const setUserClaims = (uid, data) => admin.auth().setCustomUserClaims(uid, data)
 
 const getUser = uid => admin.auth().getUser(uid)
 
-const verifyIdToken = idToken => {
-  // console.log('>>>> id', idToken)
-  return admin.auth().verifyIdToken(idToken)
-}
+const verifyIdToken = idToken =>  admin.auth().verifyIdToken(idToken)
+
 
 export {
   createUserSessionToken,

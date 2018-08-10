@@ -13,7 +13,6 @@ export async function getUserId(context) {
   if (Authorization) {
     const token = Authorization.replace('Bearer ', '')
     const { userId } = await verifyUserSessionToken(token)
-    console.log(userId)
     return userId
   }
 
