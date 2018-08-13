@@ -2,7 +2,7 @@ import { AuthError, Context } from '../../utils'
 
 import {
   verifyIdToken,
-  getUser,
+  getUserRecord,
   createUserSessionToken,
   setUserClaims,
 } from '../../firebase'
@@ -11,8 +11,8 @@ export const auth = {
   async signup(parent, args, ctx: Context, info) {
     const { uid } = await verifyIdToken(args.idToken)
 
-    const fuser = await getUser(uid)
-    const { email, emailVerified, displayName, phoneNumber } = fuser
+    const firebaseUser = await getUserRecord(uid)
+    const { email, emailVerified, displayName, phoneNumber } = firebaseUser
 
     const user = await ctx.db.mutation.createUser({
       data: {
